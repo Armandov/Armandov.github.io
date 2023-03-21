@@ -1,349 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Pilares,html,desarollo,web,CSS,base de datos,javascript"/>
-<meta name="description" content="Desarollo web en linea pilares CDMX "/>
-<meta name="language" content="ES">
-<meta name="category" content="education">
-<meta name="robots" content="index,follow,archive" />
-<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/sticky-footer-navbar.css') }}" rel="stylesheet">
- 
-    <title>Escuela de código</title>
-    <script>
-        function noclick(){
-        alert ("No está inhabilitada.\n\n\Perdonen las molestias.\n\n\n\n\fuscado")
-        return false
-    }
-    
-    document.oncontextmenu=noclick
-    
-      </script>
-    
-    
-      <script>
-        shortcut = {
-          all_shortcuts: {},
-          add: function (e, t, n) {
-            var r = {
-              type: "keydown",
-              propagate: !1,
-              disable_in_input: !1,
-              target: document,
-              keycode: !1
-            };
-            if (n) for (var i in r) "undefined" == typeof n[i] && (n[i] = r[i]);
-            else n = r;
-            r = n.target, "string" == typeof n.target && (r = document.getElementById(n.target)), e = e.toLowerCase(), i = function (r) {
-              r = r || window.event;
-              if (n.disable_in_input) {
-                var i;
-                r.target ? i = r.target : r.srcElement && (i = r.srcElement), 3 == i.nodeType && (i = i.parentNode);
-                if ("INPUT" == i.tagName || "TEXTAREA" == i.tagName) return
-              }
-              r.keyCode ? code = r.keyCode : r.which && (code = r.which), i = String.fromCharCode(code).toLowerCase(), 188 == code && (i = ","), 190 == code && (i = ".");
-              var s = e.split("+"),
-                o = 0,
-                u = {
-                  "`": "~",
-                  1: "!",
-                  2: "@",
-                  3: "#",
-                  4: "$",
-                  5: "%",
-                  6: "^",
-                  7: "&",
-                  8: "*",
-                  9: "(",
-                  0: ")",
-                  "-": "_",
-                  "=": "+",
-                  ";": ":",
-                  "'": '"',
-                  ",": "<",
-                  ".": ">",
-                  "/": "?",
-                  "\\": "|"
-                }, f = {
-                  esc: 27,
-                  escape: 27,
-                  tab: 9,
-                  space: 32,
-                  "return": 13,
-                  enter: 13,
-                  backspace: 8,
-                  scrolllock: 145,
-                  scroll_lock: 145,
-                  scroll: 145,
-                  capslock: 20,
-                  caps_lock: 20,
-                  caps: 20,
-                  numlock: 144,
-                  num_lock: 144,
-                  num: 144,
-                  pause: 19,
-                  "break": 19,
-                  insert: 45,
-                  home: 36,
-                  "delete": 46,
-                  end: 35,
-                  pageup: 33,
-                  page_up: 33,
-                  pu: 33,
-                  pagedown: 34,
-                  page_down: 34,
-                  pd: 34,
-                  left: 37,
-                  up: 38,
-                  right: 39,
-                  down: 40,
-                  f1: 112,
-                  f2: 113,
-                  f3: 114,
-                  f4: 115,
-                  f5: 116,
-                  f6: 117,
-                  f7: 118,
-                  f8: 119,
-                  f9: 120,
-                  f10: 121,
-                  f11: 122,
-                  f12: 123
-                }, l = !1,
-                c = !1,
-                h = !1,
-                p = !1,
-                d = !1,
-                v = !1,
-                m = !1,
-                y = !1;
-              r.ctrlKey && (p = !0), r.shiftKey && (c = !0), r.altKey && (v = !0), r.metaKey && (y = !0);
-              for (var b = 0; k = s[b], b < s.length; b++) "ctrl" == k || "control" == k ? (o++, h = !0) : "shift" == k ? (o++, l = !0) : "alt" == k ? (o++, d = !0) : "meta" == k ? (o++, m = !0) : 1 < k.length ? f[k] == code && o++ : n.keycode ? n.keycode == code && o++ : i == k ? o++ : u[i] && r.shiftKey && (i = u[i], i == k && o++);
-              if (o == s.length && p == h && c == l && v == d && y == m && (t(r), !n.propagate)) return r.cancelBubble = !0, r.returnValue = !1, r.stopPropagation && (r.stopPropagation(), r.preventDefault()), !1
-            }, this.all_shortcuts[e] = {
-              callback: i,
-              target: r,
-              event: n.type
-            }, r.addEventListener ? r.addEventListener(n.type, i, !1) : r.attachEvent ? r.attachEvent("on" + n.type, i) : r["on" + n.type] = i
-          },
-          remove: function (e) {
-            var e = e.toLowerCase(),
-              t = this.all_shortcuts[e];
-            delete this.all_shortcuts[e];
-            if (t) {
-              var e = t.event,
-                n = t.target,
-                t = t.callback;
-              n.detachEvent ? n.detachEvent("on" + e, t) : n.removeEventListener ? n.removeEventListener(e, t, !1) : n["on" + e] = !1
-            }
-          }
-        },
-          shortcut.add("Ctrl+U", function () {
-            alert('No\CTRL+U !')
-          }),
-          shortcut.add("Meta+Alt+U", function () {
-            alert('Sorry\nNo Command+Option+U is allowed. !')
-          }),
-          shortcut.add("Ctrl+C", function () {
-            alert('Sorry\nNever duplicate this article...')
-          }),
-          shortcut.add("Meta+C", function () {
-            alert('Sorry\nNever duplicate this article...')
-          });
-    
-        
-      </script>
-               
-        
-      <style>
-  body {
-    font: 100% Verdana;
-  }
-h1, h2, h3 {
-    color: #000000;
-}
-
-#menulist {
-    padding: 0;
-    position: relative;
-    overflow: auto;
-}
-
-
-.menuitem {
-    width: 165px;
-    float: left;
-    background-color:#4CAF50;
-    color: #ffffff;
-    list-style-type: none;
-    margin: 4px;
-    padding: 2px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.menuitem:nth-child(1) {
-   background-color:#4CAF50;
-}
-
-.menuitem:hover {
-    background-color: #999999;
-}
-
-a {
-    color:  #000000;
-}
-
-a:hover {
-    color: #84c754;
-    
-} #animated_div {
-height:25px;
-background: green;
-color: #ffffff;
-position: relative;
-font: size 8;px;
-padding:4px;
-animation:animated_div 5s 1;
--moz-animation:animated_div 5s 1;
--webkit-animation:animated_div 5s 1;
--o-animation:animated_div 5s 1;
-border-radius:5px;
--webkit-border-radius:5px;
-width: 200px;
-}
-
-@keyframes CSS {
-    0%   {background-color:rgb(26, 25, 25); right:800px; bottom:1px;}
-    25%  {background-color:yellow; right:400px; bottom:0px;}
-    50%  {background-color:blue; right:450px; bottom:200px;}
-    75%  {background-color:green; right:475px; bottom:200px;}
-    100% {background-color:rgb(134, 42, 42); right: 480px; bottom:0px;}
-  } 
-  .fixed { position: fixed;
-    bottom: 0;
-    right: .7%;
-    background-color: #2eb912;  
-    color: white;
-    border:2px solid rgba(22, 87, 9, 0.842); 
-    border-radius:10px; 
-    padding: 5px; 
-    width: fit-content;
-    animation-name: CSS ;
-    animation-duration: 60s infinite;
-        
- 
-}
-      #animated_div {
-        width:fit-content;
-        height:47px;
-        background:rgb(17, 196, 17);
-        color: #ffffff;
-        position: relative;
-        font-size:15px;
-        padding:10px;
-        animation: animated_div 5s infinite;
-       border-radius:5px;
-        -webkit-border-radius:5px;
-        }
-        
-        @keyframes animated_div
-        {
-        0% {transform: rotate(0deg);left:0px;}
-        25% {transform: rotate(20deg);left:0px;}
-        50% {transform: rotate(0deg);left:200px;}
-        55% {transform: rotate(0deg);left:200px;}
-        70% {transform: rotate(0deg);left:200px;background:#048134;}
-        100% {transform: rotate(-360deg);left:0px;}
-        }
-     
-
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+        <title>Biblioteca</title>
 </head>
 <body>
-    
-  <header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
-      <a class="navbar-brand" href="#">Escuela de código</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Pilares <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Glorieta de los Insurgentes<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Zona Rosa <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <nav>
+    <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i></a>
+      <a href="data.html"><i class="fa fa-fw fa-book"></i> </a>
+    <a target="_blank" href="https://www.discogs.com/user/Ferraboxco">  <i class="fa fa-fw fa-compact-disc"> </i>  </a>
+    <a href="index.html"><i class="fa fa-fw fa-user"></i> </a>
+  </nav>
+  <section class="dataTable">
+
+    <header class="headers">
+      <div class="cab"></div>
+      <h1 title="Full Text Javascript"></h1>
       
-      <!-- Begin page content -->
-      <main role="main" class="container">
-    
-        
-     <div id="main">
-   <h3>  <br>  <br>  <br>
-   <div id="animated_div"> Desarrollo web Front end </div>
-   </div>
-    
-  
-   
-   <h5> Lunes   </h5>     
-        </p>
+    </header> 
+ </section>
+<div class="container-fluis m-3">
+<form action="">
+<h2>Usuarios</h2>
+<div class="mb-3">
+  <label for="exampleInputEmail1" class="form-label">Nonbre</label>
+  <input type="text" id="key" class="form-control">
+</div>
+<div class="mb-3">
+  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+  <input type="password" id="value" class="form-control">
+</div>
+<div class="mb-3">
+<input type="submit" id="button" class="btn btn-dark">
+</div>
+</form>
+<div id="display"></div>
+</div>
 
-<h4>  12:00 – 14:00</h4>
 
-<a href="https://meet.google.com/jui-xsjq-zdq"> <img src="https://gstatic.com/meet/google_meet_horizontal_wordmark_icon_80dp_cfefdf43108bdcb04090d93688f6ac18.png" alt=""></a>
-<br>
-<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MGtia2NuNmllYWRtdGRiaDVkamgycTQ1ajggYXJtYW5kb3ZlQGxpdmUuY29t&amp;tmsrc=armandove%40live.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_es-419.gif"></a>
-<br> <br> <br>
-<h3 class="btn btn-success">Desarrollo web Front end </h3> <br> <br>
 
-<h5> Miércoles  </h5>
-
-<h4> 12:00 – 14:00</h4>
-
-<a href="https://meet.google.com/jui-xsjq-zdq"> <img src="https://gstatic.com/meet/google_meet_horizontal_wordmark_icon_80dp_cfefdf43108bdcb04090d93688f6ac18.png" alt=""></a>
-<br>
-<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MGtia2NuNmllYWRtdGRiaDVkamgycTQ1ajggYXJtYW5kb3ZlQGxpdmUuY29t&amp;tmsrc=armandove%40live.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_es-419.gif"></a>
-<br> <br>
-      </div>
-  
-
-    
-    <div id="bottom">
-         
-<h3  class="btn btn-success"> Inscripciones en el siguiente enlace </h3> <br>
-
-<a href="https://forms.gle/xQX5tLVie8agkbLUA"> <img src="https://www.google.com/images/about/forms-icon.svg" alt=""></a>
-
-      
-
-       
-    </div>
-  </div>
-  
+<script  src="./assets/local.js"></script>
 </main>
-
-     
-    
-      
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
-  </html>
+</body>
+</html>
